@@ -1,0 +1,6 @@
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator.Logging\bin\Debug\Pixelator.Logging.dll
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator.Logging\bin\Debug\Pixelator.Logging.pdb
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator.Logging\obj\Debug\Pixelator.Logging.csprojAssemblyReference.cache
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator.Logging\obj\Debug\Pixelator.Logging.csproj.CoreCompileInputs.cache
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator.Logging\obj\Debug\Pixelator.Logging.dll
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator.Logging\obj\Debug\Pixelator.Logging.pdb

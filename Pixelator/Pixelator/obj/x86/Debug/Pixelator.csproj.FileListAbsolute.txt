@@ -1,0 +1,14 @@
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator\bin\Debug\Pixelator.exe
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator\bin\Debug\Pixelator.pdb
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator\obj\x86\Debug\Pixelator.csprojAssemblyReference.cache
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator\obj\x86\Debug\Pixelator.ColorCountControl.resources
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator\obj\x86\Debug\Pixelator.FrmMain.resources
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator\obj\x86\Debug\Pixelator.FrmPrintPreview.resources
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator\obj\x86\Debug\Pixelator.Properties.Resources.resources
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator\obj\x86\Debug\Pixelator.csproj.GenerateResource.cache
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator\obj\x86\Debug\Pixelator.csproj.CoreCompileInputs.cache
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator\obj\x86\Debug\Pixelator.exe
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator\obj\x86\Debug\Pixelator.pdb
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator\bin\Debug\Pixelator.Logging.dll
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator\bin\Debug\Pixelator.Logging.pdb
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator\obj\x86\Debug\Pixelator.csproj.CopyComplete

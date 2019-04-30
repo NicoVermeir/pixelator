@@ -4,20 +4,30 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Pixelator.Interpolation;
+using Pixelator.Logging;
 
-namespace Pixelator {
-    public partial class FrmMain : Form {
+namespace Pixelator
+{
+    public partial class FrmMain : Form
+    {
+        private ILogger _logger;
         private Dictionary<Color, List<Rectangle>> drawList;
         private Image originalImage;
         private IInterpolator interpolator = new MiddlePixelInterpolator();
 
-        public FrmMain() {
+        public FrmMain()
+        {
             InitializeComponent();
+            _logger = new Logger();
         }
-        
-        private void txtImage_DragOver(object sender, DragEventArgs e) {
+
+        private void txtImage_DragOver(object sender, DragEventArgs e)
+        {
+            _logger.WriteLine("File ready to drop");
+
             //Allow dropping files on the TextBox
-            if (e.Data.GetDataPresent(DataFormats.FileDrop)) {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
                 e.Effect = DragDropEffects.Move;
                 return;
             }
@@ -25,7 +35,8 @@ namespace Pixelator {
             e.Effect = DragDropEffects.None;
         }
 
-        private void txtImage_DragDrop(object sender, DragEventArgs e) {
+        private void txtImage_DragDrop(object sender, DragEventArgs e)
+        {
             if (!e.Data.GetDataPresent(DataFormats.FileDrop))
                 return;
 
@@ -34,6 +45,8 @@ namespace Pixelator {
                 return;
 
             txtImage.Text = files[0];
+            _logger.WriteLine($"File dropped: {txtImage.Text}");
+
             ReadImage(txtImage.Text);
         }
 
@@ -42,8 +55,10 @@ namespace Pixelator {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnBrowse_Click(object sender, EventArgs e) {
-            using (OpenFileDialog ofd = new OpenFileDialog()) {
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
                 ofd.Filter = "Images (*.bmp; *.jpg; *.jpeg; *.gif; *.png)|*.bmp;*.jpg;*.jpeg;*.gif;*.png|All files (*.*)|*.*||";
                 ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
 
@@ -51,6 +66,7 @@ namespace Pixelator {
                     return;
 
                 txtImage.Text = ofd.FileName;
+                _logger.WriteLine($"File selected: {txtImage.Text}");
                 ReadImage(txtImage.Text);
             }
         }
@@ -59,7 +75,8 @@ namespace Pixelator {
         /// Opens the image specified by <paramref name="file"/> and triggers the Pixelate method.
         /// </summary>
         /// <param name="file"></param>
-        private void ReadImage(string file) {
+        private void ReadImage(string file)
+        {
             Bitmap bmp = new Bitmap(file);
             originalImage = bmp;
 
@@ -71,9 +88,14 @@ namespace Pixelator {
         /// </summary>
         /// <param name="renderGrid"></param>
         /// <returns>The pixelated version of the image.</returns>
-        private Image RenderImage(bool renderGrid = true) {
-            if (originalImage as Bitmap == null)
+        private Image RenderImage(bool renderGrid = true)
+        {
+            _logger.WriteLine($"Rendering file: {txtImage.Text}");
+
+            if (!(originalImage is Bitmap))
+            {
                 return null;
+            }
 
             Bitmap source = originalImage as Bitmap;
             Bitmap rasterized = new Bitmap(originalImage.Width, originalImage.Height);
@@ -83,8 +105,10 @@ namespace Pixelator {
             //but this also enables us to draw all rectangles of the same color in one operation.
             drawList = new Dictionary<Color, List<Rectangle>>();
 
-            for (int x = 0; x < rasterized.Width; x += gridSize) {
-                for (int y = 0; y < rasterized.Height; y += gridSize) {
+            for (int x = 0; x < rasterized.Width; x += gridSize)
+            {
+                for (int y = 0; y < rasterized.Height; y += gridSize)
+                {
                     int width = gridSize, height = gridSize;
 
                     //Fix width or height if the image is not divided in squares (near the edges)
@@ -104,14 +128,17 @@ namespace Pixelator {
                 }
             }
 
-            using (Graphics g = Graphics.FromImage(rasterized)) {
+            using (Graphics g = Graphics.FromImage(rasterized))
+            {
                 //Using each color, draw the list of rectangles at once
-                foreach (Color key in drawList.Keys) {
+                foreach (Color key in drawList.Keys)
+                {
                     using (Brush b = new SolidBrush(key))
                         g.FillRectangles(b, drawList[key].ToArray());
                 }
 
-                if (renderGrid) {
+                if (renderGrid)
+                {
                     //Draw horizontal lines
                     for (int x = gridSize; x < rasterized.Width; x += gridSize)
                         g.DrawLine(Pens.Black, x, 0, x, rasterized.Height);
@@ -122,6 +149,7 @@ namespace Pixelator {
                 }
             }
 
+            _logger.WriteLine($"File rendered!");
             return rasterized;
         }
 
@@ -135,13 +163,20 @@ namespace Pixelator {
         /// - We don't have that many different post-it colors.
         /// - If the original image contains too many different colors, the list of <see cref="ColorCountControl"/> objects would grow so big that a <see cref="System.ComponentModel.Win32Exception"/> (Error -2147467259: Error creating window handle) occurs.
         /// </remarks>
-        private void Pixelate(bool renderGrid = true) {
+        private void Pixelate(bool renderGrid = true)
+        {
             Image rasterized = RenderImage(renderGrid);
             if (rasterized == null)
+            {
+                _logger.WriteWarning("NULL", "Pixelate", "rasterized image is null");
                 return;
+            }
 
             SuspendLayout();
-            try {
+            try
+            {
+                _logger.WriteLine("Starting Pixelation");
+
                 printToolStripMenuItem.Enabled = true; //Enable the print methods
                 print2ToolStripMenuItem.Enabled = true;
 
@@ -149,7 +184,9 @@ namespace Pixelator {
                 pnlColors.Controls.Clear(); //Clear the color count panel.
 
                 int i = 0;
-                foreach (KeyValuePair<Color, List<Rectangle>> pair in drawList.OrderByDescending(p => p.Value.Count)) { //Order by usage count (most used first)
+                foreach (KeyValuePair<Color, List<Rectangle>> pair in drawList.OrderByDescending(p => p.Value.Count))
+                {
+                    //Order by usage count (most used first)
                     if (pair.Key.A == 0) //ignore full transparency
                         continue;
 
@@ -164,8 +201,15 @@ namespace Pixelator {
                     if (i > 63) //Stop when we have reached 64 different colors.
                         break;
                 }
+
+                _logger.WriteLine("Pixelation Done");
             }
-            finally {
+            catch (Exception ex)
+            {
+                _logger.WriteError(ex.ToString(), "Pixelate()", ex.Message);
+            }
+            finally
+            {
                 ResumeLayout();
             }
         }
@@ -175,36 +219,43 @@ namespace Pixelator {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void tbGridSize_ValueChanged(object sender, EventArgs e) {
+        private void tbGridSize_ValueChanged(object sender, EventArgs e)
+        {
             lblGridSize.Text = string.Format("{0}x{0}", tbGridSize.Value); //update the label
             Pixelate(showGridToolStripMenuItem.Checked); //And re-render the pixel version of the image
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             Close();
         }
 
-        private void openImageToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void openImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             btnBrowse_Click(sender, e);
         }
 
-        private void printToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             if (picImage.Image == null)
                 return;
 
             Image img = RenderImage(sender != print2ToolStripMenuItem); //If sender is print2 (print without grid), pass false to Pixelate.
 
-            using (FrmPrintPreview fpp = new FrmPrintPreview()) {
+            using (FrmPrintPreview fpp = new FrmPrintPreview())
+            {
                 fpp.PrintImage = img;
                 fpp.ShowDialog(this);
             }
         }
 
-        private void showGridToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void showGridToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             Pixelate(showGridToolStripMenuItem.Checked);
         }
 
-        private void InterpolationModeChanged(object sender, EventArgs e) {
+        private void InterpolationModeChanged(object sender, EventArgs e)
+        {
             ToolStripMenuItem current = middlePixelToolStripMenuItem;
             if (interpolator is DominantPixelInterpolator)
                 current = dominantPixelToolStripMenuItem;
@@ -212,13 +263,15 @@ namespace Pixelator {
                 current = weightedAverageToolStripMenuItem;
 
 
-            if (sender == current) {
+            if (sender == current)
+            {
                 //Reapply the checkbox
                 current.Checked = true;
                 return;
             }
 
-            if (sender == middlePixelToolStripMenuItem) {
+            if (sender == middlePixelToolStripMenuItem)
+            {
                 dominantPixelToolStripMenuItem.Checked = false;
                 weightedAverageToolStripMenuItem.Checked = false;
 
@@ -227,7 +280,8 @@ namespace Pixelator {
                 return;
             }
 
-            if (sender == dominantPixelToolStripMenuItem) {
+            if (sender == dominantPixelToolStripMenuItem)
+            {
                 middlePixelToolStripMenuItem.Checked = false;
                 weightedAverageToolStripMenuItem.Checked = false;
 
