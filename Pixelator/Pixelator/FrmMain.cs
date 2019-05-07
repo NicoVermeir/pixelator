@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -295,6 +296,11 @@ namespace Pixelator
 
             interpolator = new WeightedAverageInterpolator();
             Pixelate(showGridToolStripMenuItem.Checked);
+        }
+
+        private void AboutToolStripMenuItemOnClick(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/wcabus/pixelator");
         }
     }
 }

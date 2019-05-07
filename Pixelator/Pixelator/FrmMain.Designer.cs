@@ -42,12 +42,14 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.showGridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.interpolationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.middlePixelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dominantPixelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.weightedAverageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.tbGridSize)).BeginInit();
             this.pnlImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
@@ -59,17 +61,19 @@
             this.pnlColors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlColors.AutoScroll = true;
-            this.pnlColors.Location = new System.Drawing.Point(362, 120);
+            this.pnlColors.Location = new System.Drawing.Point(483, 148);
+            this.pnlColors.Margin = new System.Windows.Forms.Padding(4);
             this.pnlColors.Name = "pnlColors";
-            this.pnlColors.Size = new System.Drawing.Size(299, 369);
+            this.pnlColors.Size = new System.Drawing.Size(399, 454);
             this.pnlColors.TabIndex = 1;
             // 
             // lblImageTitle
             // 
             this.lblImageTitle.AutoSize = true;
-            this.lblImageTitle.Location = new System.Drawing.Point(12, 33);
+            this.lblImageTitle.Location = new System.Drawing.Point(16, 41);
+            this.lblImageTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblImageTitle.Name = "lblImageTitle";
-            this.lblImageTitle.Size = new System.Drawing.Size(39, 13);
+            this.lblImageTitle.Size = new System.Drawing.Size(50, 17);
             this.lblImageTitle.TabIndex = 2;
             this.lblImageTitle.Text = "Image:";
             // 
@@ -78,9 +82,10 @@
             this.txtImage.AllowDrop = true;
             this.txtImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtImage.Location = new System.Drawing.Point(72, 30);
+            this.txtImage.Location = new System.Drawing.Point(96, 37);
+            this.txtImage.Margin = new System.Windows.Forms.Padding(4);
             this.txtImage.Name = "txtImage";
-            this.txtImage.Size = new System.Drawing.Size(508, 20);
+            this.txtImage.Size = new System.Drawing.Size(676, 22);
             this.txtImage.TabIndex = 3;
             this.txtImage.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtImage_DragDrop);
             this.txtImage.DragOver += new System.Windows.Forms.DragEventHandler(this.txtImage_DragOver);
@@ -88,9 +93,10 @@
             // btnBrowse
             // 
             this.btnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrowse.Location = new System.Drawing.Point(586, 28);
+            this.btnBrowse.Location = new System.Drawing.Point(781, 34);
+            this.btnBrowse.Margin = new System.Windows.Forms.Padding(4);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowse.Size = new System.Drawing.Size(100, 28);
             this.btnBrowse.TabIndex = 4;
             this.btnBrowse.Text = "&Browse...";
             this.btnBrowse.UseVisualStyleBackColor = true;
@@ -99,18 +105,20 @@
             // lblGridSizeTitle
             // 
             this.lblGridSizeTitle.AutoSize = true;
-            this.lblGridSizeTitle.Location = new System.Drawing.Point(12, 70);
+            this.lblGridSizeTitle.Location = new System.Drawing.Point(16, 86);
+            this.lblGridSizeTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGridSizeTitle.Name = "lblGridSizeTitle";
-            this.lblGridSizeTitle.Size = new System.Drawing.Size(50, 13);
+            this.lblGridSizeTitle.Size = new System.Drawing.Size(68, 17);
             this.lblGridSizeTitle.TabIndex = 5;
             this.lblGridSizeTitle.Text = "Grid size:";
             // 
             // lblGridSize
             // 
             this.lblGridSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblGridSize.Location = new System.Drawing.Point(586, 70);
+            this.lblGridSize.Location = new System.Drawing.Point(781, 86);
+            this.lblGridSize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGridSize.Name = "lblGridSize";
-            this.lblGridSize.Size = new System.Drawing.Size(75, 13);
+            this.lblGridSize.Size = new System.Drawing.Size(100, 16);
             this.lblGridSize.TabIndex = 6;
             this.lblGridSize.Text = "16x16";
             // 
@@ -119,11 +127,12 @@
             this.tbGridSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbGridSize.LargeChange = 8;
-            this.tbGridSize.Location = new System.Drawing.Point(72, 56);
+            this.tbGridSize.Location = new System.Drawing.Point(96, 69);
+            this.tbGridSize.Margin = new System.Windows.Forms.Padding(4);
             this.tbGridSize.Maximum = 64;
             this.tbGridSize.Minimum = 4;
             this.tbGridSize.Name = "tbGridSize";
-            this.tbGridSize.Size = new System.Drawing.Size(508, 45);
+            this.tbGridSize.Size = new System.Drawing.Size(677, 56);
             this.tbGridSize.TabIndex = 7;
             this.tbGridSize.TickFrequency = 4;
             this.tbGridSize.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -134,9 +143,10 @@
             // 
             this.lblColorsTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblColorsTitle.AutoSize = true;
-            this.lblColorsTitle.Location = new System.Drawing.Point(359, 104);
+            this.lblColorsTitle.Location = new System.Drawing.Point(479, 128);
+            this.lblColorsTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblColorsTitle.Name = "lblColorsTitle";
-            this.lblColorsTitle.Size = new System.Drawing.Size(112, 13);
+            this.lblColorsTitle.Size = new System.Drawing.Size(150, 17);
             this.lblColorsTitle.TabIndex = 8;
             this.lblColorsTitle.Text = "Used colors: (max. 64)";
             // 
@@ -147,14 +157,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlImage.AutoScroll = true;
             this.pnlImage.Controls.Add(this.picImage);
-            this.pnlImage.Location = new System.Drawing.Point(15, 107);
+            this.pnlImage.Location = new System.Drawing.Point(20, 132);
+            this.pnlImage.Margin = new System.Windows.Forms.Padding(4);
             this.pnlImage.Name = "pnlImage";
-            this.pnlImage.Size = new System.Drawing.Size(341, 382);
+            this.pnlImage.Size = new System.Drawing.Size(455, 470);
             this.pnlImage.TabIndex = 9;
             // 
             // picImage
             // 
             this.picImage.Location = new System.Drawing.Point(0, 0);
+            this.picImage.Margin = new System.Windows.Forms.Padding(4);
             this.picImage.Name = "picImage";
             this.picImage.Size = new System.Drawing.Size(64, 64);
             this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -163,12 +175,15 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.imageToolStripMenuItem});
+            this.imageToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(673, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(897, 28);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -181,14 +196,14 @@
             this.toolStripMenuItem1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // openImageToolStripMenuItem
             // 
             this.openImageToolStripMenuItem.Name = "openImageToolStripMenuItem";
             this.openImageToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openImageToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.openImageToolStripMenuItem.Size = new System.Drawing.Size(298, 26);
             this.openImageToolStripMenuItem.Text = "&Open Image...";
             this.openImageToolStripMenuItem.Click += new System.EventHandler(this.openImageToolStripMenuItem_Click);
             // 
@@ -197,7 +212,7 @@
             this.printToolStripMenuItem.Enabled = false;
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
             this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(298, 26);
             this.printToolStripMenuItem.Text = "&Print...";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
@@ -207,20 +222,20 @@
             this.print2ToolStripMenuItem.Name = "print2ToolStripMenuItem";
             this.print2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.P)));
-            this.print2ToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.print2ToolStripMenuItem.Size = new System.Drawing.Size(298, 26);
             this.print2ToolStripMenuItem.Text = "&Print without grid...";
             this.print2ToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(246, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(295, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(298, 26);
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -231,13 +246,8 @@
             this.toolStripMenuItem2,
             this.interpolationToolStripMenuItem});
             this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
-            this.imageToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.imageToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
             this.imageToolStripMenuItem.Text = "&Image";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(167, 6);
             // 
             // showGridToolStripMenuItem
             // 
@@ -246,9 +256,14 @@
             this.showGridToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.showGridToolStripMenuItem.Name = "showGridToolStripMenuItem";
             this.showGridToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.showGridToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.showGridToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
             this.showGridToolStripMenuItem.Text = "&Show Grid";
             this.showGridToolStripMenuItem.Click += new System.EventHandler(this.showGridToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(201, 6);
             // 
             // interpolationToolStripMenuItem
             // 
@@ -257,7 +272,7 @@
             this.dominantPixelToolStripMenuItem,
             this.weightedAverageToolStripMenuItem});
             this.interpolationToolStripMenuItem.Name = "interpolationToolStripMenuItem";
-            this.interpolationToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.interpolationToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
             this.interpolationToolStripMenuItem.Text = "Inter&polation";
             // 
             // middlePixelToolStripMenuItem
@@ -266,7 +281,7 @@
             this.middlePixelToolStripMenuItem.CheckOnClick = true;
             this.middlePixelToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.middlePixelToolStripMenuItem.Name = "middlePixelToolStripMenuItem";
-            this.middlePixelToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.middlePixelToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.middlePixelToolStripMenuItem.Text = "&Middle pixel";
             this.middlePixelToolStripMenuItem.Click += new System.EventHandler(this.InterpolationModeChanged);
             // 
@@ -274,7 +289,7 @@
             // 
             this.dominantPixelToolStripMenuItem.CheckOnClick = true;
             this.dominantPixelToolStripMenuItem.Name = "dominantPixelToolStripMenuItem";
-            this.dominantPixelToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.dominantPixelToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.dominantPixelToolStripMenuItem.Text = "&Dominant pixel";
             this.dominantPixelToolStripMenuItem.Click += new System.EventHandler(this.InterpolationModeChanged);
             // 
@@ -282,15 +297,30 @@
             // 
             this.weightedAverageToolStripMenuItem.CheckOnClick = true;
             this.weightedAverageToolStripMenuItem.Name = "weightedAverageToolStripMenuItem";
-            this.weightedAverageToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.weightedAverageToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.weightedAverageToolStripMenuItem.Text = "&Weighted average";
             this.weightedAverageToolStripMenuItem.Click += new System.EventHandler(this.InterpolationModeChanged);
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.helpToolStripMenuItem.Text = "&Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(125, 26);
+            this.aboutToolStripMenuItem.Text = "&About";
+            this.aboutToolStripMenuItem.Click += AboutToolStripMenuItemOnClick;
+            // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 501);
+            this.ClientSize = new System.Drawing.Size(897, 617);
             this.Controls.Add(this.pnlImage);
             this.Controls.Add(this.lblColorsTitle);
             this.Controls.Add(this.tbGridSize);
@@ -303,7 +333,8 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(451, 246);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(595, 292);
             this.Name = "FrmMain";
             this.Text = "Pixelator";
             ((System.ComponentModel.ISupportInitialize)(this.tbGridSize)).EndInit();
@@ -343,6 +374,8 @@
         private System.Windows.Forms.ToolStripMenuItem middlePixelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dominantPixelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem weightedAverageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 
