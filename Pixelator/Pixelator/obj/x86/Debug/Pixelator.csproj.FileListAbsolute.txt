@@ -12,3 +12,4 @@ D:\DotNext\Demo\pixelator\Pixelator\Pixelator\obj\x86\Debug\Pixelator.pdb
 D:\DotNext\Demo\pixelator\Pixelator\Pixelator\bin\Debug\Pixelator.Logging.dll
 D:\DotNext\Demo\pixelator\Pixelator\Pixelator\bin\Debug\Pixelator.Logging.pdb
 D:\DotNext\Demo\pixelator\Pixelator\Pixelator\obj\x86\Debug\Pixelator.csproj.CopyComplete
+D:\DotNext\Demo\pixelator\Pixelator\Pixelator\obj\x86\Debug\Pixelator.FrmWebview.resources

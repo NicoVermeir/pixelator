@@ -50,6 +50,7 @@
             this.weightedAverageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.webDemoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.tbGridSize)).BeginInit();
             this.pnlImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
@@ -304,7 +305,8 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.webDemoToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem.Text = "&Help";
@@ -312,9 +314,15 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(125, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.aboutToolStripMenuItem.Text = "&About";
-            this.aboutToolStripMenuItem.Click += AboutToolStripMenuItemOnClick;
+            // 
+            // webDemoToolStripMenuItem
+            // 
+            this.webDemoToolStripMenuItem.Name = "webDemoToolStripMenuItem";
+            this.webDemoToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.webDemoToolStripMenuItem.Text = "&Web Demo";
+            this.webDemoToolStripMenuItem.Click += new System.EventHandler(this.WebDemoToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -376,6 +384,7 @@
         private System.Windows.Forms.ToolStripMenuItem weightedAverageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem webDemoToolStripMenuItem;
     }
 }
 

@@ -302,5 +302,10 @@ namespace Pixelator
         {
             Process.Start("https://github.com/wcabus/pixelator");
         }
+
+        private void WebDemoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrmWebview().ShowDialog(this);
+        }
     }
 }
