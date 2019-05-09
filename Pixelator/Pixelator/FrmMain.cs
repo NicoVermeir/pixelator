@@ -61,7 +61,7 @@ namespace Pixelator
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
                 ofd.Filter = "Images (*.bmp; *.jpg; *.jpeg; *.gif; *.png)|*.bmp;*.jpg;*.jpeg;*.gif;*.png|All files (*.*)|*.*||";
-                ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+                ofd.InitialDirectory = "D:\\DotNext\\Assets";
 
                 if (ofd.ShowDialog(this) != DialogResult.OK)
                     return;
