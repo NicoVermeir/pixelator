@@ -298,14 +298,14 @@ namespace Pixelator
             Pixelate(showGridToolStripMenuItem.Checked);
         }
 
-        private void AboutToolStripMenuItemOnClick(object sender, EventArgs e)
-        {
-            Process.Start("https://github.com/wcabus/pixelator");
-        }
-
         private void WebDemoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FrmWebview().ShowDialog(this);
+        }
+
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/wcabus/pixelator");
         }
     }
 }
